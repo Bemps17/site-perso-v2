@@ -1,0 +1,179 @@
+/* Styles généraux */
+
+/* Conteneur principal */
+
+/* Animation en taille normale (par défaut) */
+.background-animation {
+  display: flex;
+  flex-direction: column; /* Empilement vertical */
+  justify-content: center;
+  align-items: center;
+
+
+ 
+  position: absolute;
+  bottom: 50%;
+  right: 10%;
+  transform: translateY(50%) translateX(33%);
+  width: 20%;
+  height: auto;
+  z-index: 1;
+  overflow: hidden; /* Empêche les débordements */
+  
+}
+
+/* Image au premier plan */
+.background-animation img {
+  width: 100%;
+  opacity: 1; /* Opacité par défaut */
+  z-index: 1;
+
+  transition: opacity 0.3s ease; /* Transition douce */
+}
+
+/* Conteneur pour l'animation */
+#lottie-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* En arrière-plan */
+}
+.lottie-dark-mode{
+   opacity: 1;
+  
+}
+
+/* Texte sous l'image */
+.typing-text {
+  z-index: 2;
+  font-family: "K2D", Courier, monospace;
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: var(--color-accent);
+  margin-top: 40px;
+  white-space: nowrap;
+  border-right: 2px solid var(--color-accent); /* Curseur */
+  animation: blink 0.7s steps(2, start) infinite;
+}
+
+/* Animation du curseur qui clignote */
+@keyframes blink {
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Responsiveness en dessous de 1300px */
+@media (max-width: 1300px) {
+  #heroTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .background-animation {
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
+    position: relative; /* Devient relative pour rester dans .cover */
+    bottom: initial; /* Supprime les positionnements absolus */
+    right: initial;
+    transform: none; /* Annule les transformations */
+    height: initial; /* Devient plus large pour s’adapter */
+    margin-left: 3vw;
+  }
+
+  .background-animation img {
+    opacity: 0.5; /* Augmente légèrement la visibilité sur mobile */
+  }
+
+  .typing-text {
+    margin-top: initial;
+    font-size: 1.5vw; /* Taille réactive du texte */
+  }
+  .digital-clock button{
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+    
+
+
+    .hero-container::before{
+        display: none;
+    }
+            
+    #heroTitle {
+           
+      
+       
+           
+            display: flex;
+            flex-direction: column-reverse;
+           
+            align-items: center;
+          }
+    
+    .background-animation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 0;
+      
+        width: 80%;
+        height: auto;
+       
+        
+        
+      }
+      .background-animation img {
+        width: 60%; /* Augmente légèrement la visibilité sur mobile */
+      }
+    #lottie-container{
+        width: 60%;
+       left: 50%;
+       transform: translatex(-50%);
+      
+       
+    }
+
+   
+  
+    .typing-text {
+      margin-top: 2vh;
+      font-size: 4vw; /* Texte plus grand pour petits écrans */
+    }
+  }
+/* Pour les petits écrans (smartphones) */
+@media (max-width: 768px) {
+    #heroTitle {
+      
+      margin-top: 2vh;
+    
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      
+ 
+  #lottie-container{
+    width: 100%;
+   
+}
+
+  .background-animation img {
+    width: 100%;
+   
+  }
+
+  .typing-text {
+   
+    font-size: 4vw; /* Texte plus grand pour petits écrans */
+  }
+}
+
+
